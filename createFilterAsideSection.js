@@ -5,7 +5,7 @@ function createFilterAsideSection() {
   asideEl.setAttribute('class', 'filters-section');
 
   const functionEl = createFilterSection();
-  asideEl.append(functionEl);
+  asideEl.append(h2El, functionEl);
   return asideEl;
 }
 

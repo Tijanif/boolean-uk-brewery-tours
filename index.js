@@ -1,4 +1,5 @@
-import { createFilterAsideSection } from './createFilterAsideSection.js';
+// import { createFilterAsideSection } from './createFilterAsideSection.js';
+import { createFilterAsideSection } from './createFilterSection.js';
 
 const getMainEl = document.querySelector('main');
 getMainEl.append(createFilterAsideSection());
