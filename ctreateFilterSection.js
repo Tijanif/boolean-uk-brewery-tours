@@ -1,7 +1,9 @@
 const createFilterSection () {
 
  const h2El = document.createElement('h2')
- h2El.innerText
+ h2El.innerText = 'Filter By:'
+
+ const formEl
 }
 
 <h2>Filter By:</h2>
