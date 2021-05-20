@@ -1,4 +1,3 @@
-// const createFilterSection = () => {
 const h2El = document.createElement('h2');
 h2El.innerText = 'Filter By:';
 
@@ -45,28 +44,52 @@ formSelectEl.append(
 
 formEl.append(formLabelEl, formSelectEl);
 
-//   return  formEl;
-// };
+// Div element
+const divEl = document.createElement('div');
+divEl.setAttribute('class', 'filter-by-city-heading');
+
+const divH3El = document.createElement('h3');
+divH3El.innerText = 'Cities';
+const divBtn = document.createElement('button');
+divBtn.setAttribute('class', 'clear-all-btn');
+divBtn.innerText = 'clear all';
+
+divEl.append(divH3El, divBtn);
+
+// Second form
+const filterByCityFormEl = document.createElement('form');
+filterByCityFormEl.setAttribute('id', 'filter-by-city-form');
+
+const filterByCityInputOne = document.createElement('input');
+filterByCityInputOne.setAttribute('type', 'checkbox');
+filterByCityInputOne.setAttribute('name', 'chardon');
+filterByCityInputOne.setAttribute('value', 'chardon');
+
+const filterLabelEl = document.createElement('label');
+filterLabelEl.setAttribute('for', 'chardon');
+filterLabelEl.innerText = 'Chardon';
+
+const filterByCityInputTwo = document.createElement('input');
+filterByCityInputTwo.setAttribute('type', 'checkbox');
+filterByCityInputTwo.setAttribute('name', 'cincinnati');
+filterByCityInputTwo.setAttribute('value', 'cincinnati');
+
+const secondFilterLabelEl = document.createElement('label');
+secondFilterLabelEl.setAttribute('for', 'cincinnati');
+secondFilterLabelEl.innerText = 'Cincinnati';
+
+filterByCityFormEl.append(
+  filterByCityInputOne,
+  filterLabelEl,
+  filterByCityInputTwo,
+  secondFilterLabelEl
+);
 
 function createFilterAsideSection() {
   const asideEl = document.createElement('aside');
   asideEl.setAttribute('class', 'filters-section');
 
-  asideEl.append(h2El, formEl);
+  asideEl.append(h2El, formEl, divEl, filterByCityFormEl);
   return asideEl;
 }
 export { createFilterAsideSection };
-
-// <div class="filter-by-city-heading">
-//   <h3>Cities</h3>
-//   <button class="clear-all-btn">clear all</button>
-// </div>
-// <form id="filter-by-city-form">
-//   <input type="checkbox" name="chardon" value="chardon" /><label for="chardon"
-//     >Chardon</label
-//   ><input type="checkbox" name="cincinnati" value="cincinnati" /><label
-//     for="cincinnati"
-//     >Cincinnati</label
-//   >
-//   // More checkboxes
-// </form>
