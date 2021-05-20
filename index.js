@@ -2,8 +2,7 @@
 import { createFilterAsideSection } from './createFilterSection.js';
 
 const getMainEl = document.querySelector('main');
-getMainEl.append(createFilterAsideSection());
-console.log(getMainEl);
+
 const state = {
   breweries: [],
 };
@@ -69,68 +68,69 @@ function listenToSelectStateForm() {
 
       // show me state in the console
       // HERE WE CAN GUARANTEE THAT WE HAVE THE UPDATED BREWERY LIST
+
       renderBreweryList();
+      getMainEl.append(createFilterAsideSection());
     });
   });
 }
 
-// // header
-// const listHeaderEl = document.createElement('header');
-// listHeaderEl.setAttribute('class', 'search-bar');
+//  h1
+// header
+const listHeaderEl = document.createElement('header');
+listHeaderEl.setAttribute('class', 'search-bar');
 
-// // form
-// const listFormEl = document.createElement('form');
-// listFormEl.setAttribute('id', 'search-breweries-form', 'autocomplete', 'off');
+// form
+const listFormEl = document.createElement('form');
+listFormEl.setAttribute('id', 'search-breweries-form', 'autocomplete', 'off');
 
-// //  form label
-// const formLabelEl = document.createElement('label');
-// formLabelEl.setAttribute('for', 'search-breweries');
+//  form label
+const formLabelEl = document.createElement('label');
+formLabelEl.setAttribute('for', 'search-breweries');
 
-// const labelH2 = document.createElement('h2');
-// labelH2.innerText = 'Search breweries:';
+const labelH2 = document.createElement('h2');
+labelH2.innerText = 'Search breweries:';
+formLabelEl.append(labelH2);
 
-// formLabelEl.append(labelH2);
+// form input
 
-// const formInput = document.createElement('input');
-// formInput.setAttribute(
-//   'id',
-//   'search-breweries',
-//   'name',
-//   'search-breweries',
-//   'type',
-//   'text'
-// );
-// listFormEl.append(formLabelEl, formLabelEl);
-// mainEl.append(listHeaderEl, listFormEl);
+const formInput = document.createElement('input');
+formInput.setAttribute(
+  'id',
+  'search-breweries',
+  'name',
+  'search-breweries',
+  'type',
+  'text'
+);
+listFormEl.append(formLabelEl, formLabelEl, formInput);
+
+const mainEl = document.querySelector('main');
+const articleEl = document.createElement('artile');
+const ulEl = document.createElement('ul');
+ulEl.setAttribute('class', 'breweries-list');
+
+articleEl.append(ulEl);
+const listH1El = document.createElement('h1');
+listH1El.innerText = 'List of Breweries';
+mainEl.append(listHeaderEl, listFormEl, articleEl);
+
 // input: nothing
 // action: put the list of breweries on the page
 // output: nothing
 function renderBreweryList() {
-  const mainEl = document.querySelector('main');
-
   for (const brewery of state.breweries) {
     renderSingleBreweryListItem(brewery);
   }
 }
 
 function renderSingleBreweryListItem(brewery) {
-  const mainEl = document.querySelector('main');
-
-  const articleEl = document.createElement('artile');
-  const ulEl = document.createElement('ul');
-  ulEl.setAttribute('class', 'breweries-list');
-
-  articleEl.append(ulEl);
-  const listH1El = document.createElement('h1');
-  listH1El.innerText = 'List of Breweries';
-  mainEl.append(articleEl);
   // code to put a single brewery on the page here...
-  const liEl = ourRenderSingleBreweryListItem(brewery);
-
+  const liEl = createSingleBreweryListItem(brewery);
   ulEl.append(liEl);
 }
 
-function ourRenderSingleBreweryListItem(brewery) {
+function createSingleBreweryListItem(brewery) {
   const LiEl = document.createElement('li');
 
   const h2El = document.createElement('h2');
