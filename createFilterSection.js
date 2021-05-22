@@ -25,7 +25,7 @@ selectOptionTypeEl.innerText = 'Select a type...';
 
 const selectOptionMicroEl = document.createElement('option');
 selectOptionMicroEl.setAttribute('value', 'micro');
-selectOptionMicroEl.innerText = 'Micro';
+selectOptionMicroEl.innerText = 'Micros';
 
 const selectOptionRegionalEl = document.createElement('option');
 selectOptionRegionalEl.setAttribute('value', 'regional');
