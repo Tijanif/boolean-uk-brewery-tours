@@ -1,12 +1,3 @@
-// // import { createFilterAsideSection } from './createFilterAsideSection.js';
-// import { createFilterAsideSection } from './createFilterSection.js';
-
-// const getMainEl = document.querySelector('main');
-
-// const state = {
-//   breweries: [],
-// };
-
 // // https://api.openbrewerydb.org/breweries?by_state=ohio
 
 // // input: US state: string
